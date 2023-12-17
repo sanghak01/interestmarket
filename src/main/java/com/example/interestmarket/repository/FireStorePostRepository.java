@@ -45,7 +45,6 @@ public class FireStorePostRepository implements PostRepository{
     @Override
     public List<Post> findByTitle(String title) throws InterruptedException, ExecutionException {
         List<Post> postList = new ArrayList<Post>();
-        ObjectMapper objectMapper = new ObjectMapper();
         Post post = null;
 
         ApiFuture<QuerySnapshot> a = db.collection("Post")

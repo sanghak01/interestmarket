@@ -18,14 +18,17 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User join(String id, String name, String password) {
-        User user = new User();
-        user.setName(name);
-        user.setId(id);
-        user.setPassword(password);
-        userRepository.save(user);
-
-        return user;
+    public User join(String id, String name, String password) throws ExecutionException, InterruptedException {
+        if (!userRepository.validateUserIsExist(id)) {
+            User user = new User();
+            user.setName(name);
+            user.setId(id);
+            user.setPassword(password);
+            userRepository.save(user);
+            return user;
+        } else {
+            return null;
+        }
     }
 
     public User login(String id, String password) throws InterruptedException, ExecutionException {
