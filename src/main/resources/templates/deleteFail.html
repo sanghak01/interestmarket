@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 삭제 불가</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        p {
+            color: red;
+            font-size: 18px;
+        }
+
+        button {
+            background-color: #496170;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #496170;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <p>게시글을 삭제할 수 없습니다.<br/>(작성자가 아니거나, 일시적인 오류입니다)</p>
+    <button type="button" th:onclick="|location.href='@{/posts(id=${id})}'|">게시글 목록으로</button>
+</div>
+</body>
+</html>

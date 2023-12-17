@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 작성 폼</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        div {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%; /* 내용 입력창을 가로폭 100%로 설정 */
+        }
+
+        #title, #content {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #496170;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            outline: none;
+        }
+
+        button:hover {
+            background-color: #496170;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form action="/writeForm" method="post">
+        <input type="hidden" name="id" th:value="${id}">
+        <label for="title">제목:</label>
+        <input type="text" id="title" name="title">
+
+        <label for="content">내용:</label>
+        <textarea id="content" name="content" rows="4"></textarea>
+
+        <button type="submit">작성</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 상세보기</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, p {
+            text-align: center;
+        }
+
+        button {
+            background-color: #496170;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #496170;
+        }
+
+        /* 댓글창 스타일 */
+        .comment-section {
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .comment-button {
+            background-color: #496170;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .comment-button:hover {
+            background-color: #496170;
+        }
+
+        /* 댓글 확인 부분 스타일 */
+        .comments {
+            margin-top: 20px;
+        }
+
+        .comment {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .comment p {
+            margin: 0;
+        }
+
+        .comment .comment-info {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${post.title}"></h1>
+    <p th:text="${post.content}"></p>
+    <p th:text="${post.writer}"></p>
+
+    <button type="button" th:onclick="|location.href='@{/posts(id=${id})}'|">게시글 목록으로</button>
+
+    <!-- 게시글 삭제 버튼 -->
+    <button type="button" th:onclick="|location.href='@{/delete(id=${id}, writer=${post.writer}, postId=${post.postId})}'|">게시글 삭제</button>
+</div>
+</body>
+</html>
